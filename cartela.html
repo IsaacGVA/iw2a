@@ -67,21 +67,12 @@
     <script>
         function GerarCartela()
         {
-            vetorB= GerarVetor(1,15)
-            console.log(vetorB)
-
-            vetorI= GerarVetor(16,30)
-            console.log(vetorI)
-
-            vetorN= GerarVetor(31,45)
-            console.log(vetorN)
-            
-            vetorG= GerarVetor(46,60)
-            console.log(vetorG)
-
-            vetorO= GerarVetor(61,75)
-            console.log(vetorO)
-
+            vetorB= MisturarArray ( GerarVetor(1,15) )
+            vetorI= MisturarArray ( GerarVetor(16,30) )
+            vetorN= MisturarArray ( GerarVetor(31,45) )
+            vetorG= MisturarArray ( GerarVetor(46,60) )
+            vetorO= MisturarArray ( GerarVetor(61,75) )
+        
             for(var i=0; i<5 ;i++)
             {
                 var td = document.getElementById("b"+(i+1))
@@ -131,6 +122,31 @@
                 td.style.color= "black"
             }
         }
+            function NumeroAleatorio(numeroMinimo,  numeroMaximo){
+             var retorno = Math.floor(Math.random() * numeroMaximo)
+             if(retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo)
+             {
+             return retorno
+             } else {
+             return NumeroAleatorio(numeroMinimo, numeroMaximo)
+        }
+    }
+
+    function MisturarArray(array)
+    {
+        var aleatorio 
+        var cont = array.leght
+        var auxiliar
+        while (cont != 0){
+            aleatorio = NumeroAleatorio(1, array.length)
+            cont--
+            auxiliar = array[cont]
+            array[cont] = array[aleatorio]
+            array[aleatorio] = auxiliar
+        }
+        return array
+    }
+
 
     </script>
 </body>
